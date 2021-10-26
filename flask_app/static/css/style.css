@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.3em;
+    margin-bottom: 50px;
+}
+
+#container-log {
+    width: 215px;
+    margin: 50px auto 0 auto;
+}
+
+#container-reg, .container-edit-account {
+    margin: 50px auto 0 auto;
+}
+
+#flash {
+    width: 65%;
+    height: 100px;
+    margin: 5px auto 80px auto;
+}
+
+.submit {
+    margin: 25px 0;
+    border: 5px solid black;
+    background-color: white;
+    padding: 10px 20px;
+    color: black;
+}
+
+.submit:hover {
+    color: rgb(38, 78, 255)
+}
+.update {
+    margin: 25px 0;
+    border: 5px solid black;
+    background-color: white;
+    padding: 10px 20px;
+    color: black;
+}
+
+.update:hover {
+    color: rgb(38, 78, 255)
+}
+
+.row {
+   height: 250px;
+}
+
+h2 {
+    margin: 100px auto 0 auto;
+    width: 75%;
+}
+
+#container-dashboard {
+    width: 75%;
+    margin: 10px auto 0 auto; 
+    border: 5px solid black;
+    padding: 25px;
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(160, 160, 160);
+    padding: 10px 0;
+}
+
+#head h1 {
+    margin-left: 20px; 
+    margin-top: 2.5px;
+}
+
+.head-a {
+    text-decoration: none;
+    color: white;
+}
+
+#container-pages {
+    margin: 10px auto 0 auto; 
+    padding: 25px;
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 2.3em;
+}
+
+.links {
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.links a {
+    margin-left: 70px;
+}
+
+.log {
+    border: 5px solid black;
+    background-color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+#head-all {
+    display: flex;
+    margin-left: auto;
+}
+
+.links-pages {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: auto;
+}
+
+.links-pages a {
+    margin-left: 70px;
+}
+
+.colm {
+    padding-right: 50px;
+}
+
+table input, textarea {
+    width: 400px;
+}
+
+textarea {
+    height: 200px;
+}
+
+.d {
+    margin-top: -100px;
+}
+
+.small {
+    width: 200px;
+}
+
+#header-1 {
+    background-color: red;
+}
+
+.create-account, .edit-account {
+    width: 330px;
+    margin: 0 auto;
+}
+
+.create-account-form, .edit-account-form {
+    width: 430px;
+    margin: 0 auto;
+    display: flex;
+    flex: wrap;
+}
+
+.edit-account-form {
+    margin-top: 100px;
+}
+
+ .col-1 {
+    width: 215px;
+    margin-right: 50px;
+ }
+
+ .col-2 {
+    width: 215px;
+ }
+
+ .reg-btn {
+     width: 100px;
+     margin: 0 auto;
+ }
+
+ #container-account {
+    width: 75%;
+    margin: 10px auto 0 auto; 
+    display: flex;
+    justify-content: space-between;
+ }
+
+ #head-col {
+    margin: 25px 25px;
+    width: 30%;  
+ }
+
+ #head-col h2 {
+     margin: 0;
+ }
+
+ .col {
+    width: 100%;
+    height: 675px;
+    background-color: rgb(201, 201, 201);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+
+ .acc-col {
+    width: 100%;
+    height: 675px;
+    background-color: rgb(201, 201, 201);
+    padding: 15px;    
+ }
+
+ .edit-btn {
+    border: 5px solid black;
+    background-color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+ }
+
+ .edit-account {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     position: relative;
+     bottom: -75px;
+ }
+
+ .buy-edit {
+    border: 5px solid black;
+    background-color: white;
+    padding: 10px 40px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-margin {
+    margin-top: 50px;
+}
+
+#getMovieInfo {
+    border: 5px solid black;
+    background-color: white;
+    padding: 3px 20px;
+    text-decoration: none;
+    color: black;  
+    font-size: .7em;
+    margin-bottom: 50px;
+    top: -2px;
+    position: relative;
+}
+
+#title-search {
+    width: 345px;
+    margin: 0 auto;
+}
+
+.des {
+    margin-top: -135px;
+}
+
+#title {
+    outline: none;
+}
+
+#posterImg {
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+#movieInfo {
+    text-align: center;
+}
+
+#description {
+    width: 30%;
+    margin: 0 auto 15px auto;
+}
+
+#container-edit-account {
+    text-align: center;   
+}
+
+.edit-btn {
+    border: none;
+}
+.edit-acc-btn {
+    border: 5px solid black;
+    padding: 10px 20px;
+    background-color: white;
+    text-decoration: none;
+}
+
+#more {
+    text-align: center;
+}
+
+.message {
+    text-align: center
+}
+
+.c {
+    margin-bottom: 10px;
+}
+
+.tb-block {
+    margin: 0 auto;
+}
+
+#head-col-block h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col-3 {
+    width: 50%;;
+    background-color: rgb(201, 201, 201);
+    padding: 15px;
+ }
+

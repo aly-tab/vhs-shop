@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>VHSes</title>
+</head>
+<body>
+    <div id="head">
+        <h1><a href="/" class="head-a">VHS Shop</a></h1>
+        <div class="links">
+            {% if session_id != 0 %}
+                <a href="/new" class="head-a">Add VHS</a>
+                <a href="/account" class="head-a">Account</a>
+            {% else %} 
+                <a href="/register" class="head-a">Register</a>
+            {% endif %}
+            {% if session_id != 0 %}
+                <a href="/logout" class="log">Log Out</a>
+            {% else %} 
+                <a href="/login" class="log">Login</a>  
+            {% endif %}
+        </div> 
+    </div>
+    <div id="container-account">
+        <div id="head-col">
+            <h2>Purchases</h2>
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td scope="col">Title</td>
+                            <td scope="col">Price</td>
+                        </tr>
+                    </thead>
+                    <tbody id="purchase-table">
+                        {% for purchase in purchases.purchases %}
+                            {% if purchase.poster_id != purchase.owner_id %}
+                            <tr>
+                                <td>{{ purchase.title }} <a href="/view/{{ purchase.id }}">View</a></td>
+                                <td>{{ purchase.price }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div id="more">
+                    <a href="/purchases_list">More</a>
+                </div>
+            </div>
+        </div>
+        <div id="head-col">
+            <h2>Posted VHSes</h2>
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td scope="col">Title</td>
+                            <td scope="col">Price</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vhs in vhses.movies %}
+                        <tr>
+                            <td>{{vhs.title}} <a href="/view/{{ vhs.id }}">View</a> 
+                                {% if vhs.owner_id == vhs.poster_id %}
+                                <a href="/delete_on_account/{{ vhs.id }}">Delete</a></td>
+                                {% else %}
+                                    <span style="text-decoration: underline">Sold</span>
+                                {% endif %}
+                            <td>{{vhs.price}} 
+                            {% if vhs.owner_id == vhs.poster_id %}
+                            <a href="/edit/{{ vhs.id }}">Edit</a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div id="more">
+                    <a href="/posted_list">More</a>
+                </div>
+            </div>
+        </div>
+        <div id="head-col">
+            <h2>Account Information</h2>
+            <div class="acc-col">
+                <label>Name:</label>
+                <p>{{ user.first_name }} {{ user.last_name }}</p>
+                <label>Email:</label>
+                <p>{{ user.email}}</p>
+                <label>Password:</label>
+                <p>Hidden</p>
+                <label>Address:</label>
+                <p>{{user.address}}</p>
+                <label>State:</label>
+                <p>{{ user.state }}</p>
+                <label>Zip Code:</label>
+                <p>{{ user.zip }}</p>
+                <div class="edit-account">
+                    <a href="/edit_account" class="edit-acc-btn">Edit Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

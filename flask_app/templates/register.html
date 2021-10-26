@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>VHSes</title>
+</head>
+<body>
+    <div id="head">
+        <h1><a href="/" class="head-a">VHS Shop</a></h1> 
+    </div>
+    {% with messages = get_flashed_messages() %}     
+        {% if messages %}                          
+            {% for message in messages %}         
+                <p>{{message}}</p>               
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div id="container-reg">
+        <div class="create-account">
+            <h1>Create an Account</h1>
+        </div>
+        <form action="/register_process" method="post">
+        <div class="create-account-form">
+            <div class="col-1">
+                <p for="fname">First Name:</p>
+                <input type="text" name="fname">
+                <p for="lname">Last Name:</p>
+                <input type="text" name="lname">
+                <p for="email">Email:</p>
+                <input type="text" name="email">
+                <p for="password">Password:</p>
+                <input type="password" name="password">
+                <p for="confirm-password">Confirm Password:</p>
+                <input type="password" name="confirm-password">
+            </div>
+            <div class="col-2">
+                <p for="address">Address</p>
+                <input type="text" name="address">  
+                <p for="city">City</p>  
+                <input type="text" name="city">  
+                <p for="state">State</p>  
+                <input type="text" name="state">  
+                <p for="zip">Zip Code</p>  
+                <input type="number" name="zip">                            
+            </div>
+        </div>
+        <div class="reg-btn">
+            <input type="submit" value="Register" name="submit" class="submit">
+        </div>
+        </form>
+    </div>
+</body>
+</html>

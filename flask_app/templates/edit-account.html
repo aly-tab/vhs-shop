@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>VHSes</title>
+</head>
+<body>
+    <div id="head">
+        <h1><a href="/" class="head-a">VHS Shop</a></h1>
+        <div class="links">
+            {% if session_id != 0 %}
+                <a href="/new" class="head-a">Add VHS</a>
+                <a href="/account" class="head-a">Account</a>
+            {% else %} 
+                <a href="/register" class="head-a">Register</a>
+            {% endif %}
+            {% if session_id != 0 %}
+                <a href="/logout" class="log">Log Out</a>
+            {% else %} 
+                <a href="/login" class="log">Login</a>  
+            {% endif %}
+        </div> 
+    </div>
+    <div id="container-edit-account">
+        <div class="edit-account">
+            <h1>Edit Account</h1>
+        </div>
+        <form action="/edit_account_process" method="post">
+        <div class="edit-account-form">
+            <div class="col-1">
+                <p for="fname">First Name:</p>
+                <input class="c" type="text" name="fname" value="{{ user.first_name }}">
+                <p for="lname">Last Name:</p>
+                <input class="c" type="text" name="lname" value="{{ user.last_name }}">
+                <p for="email">Email:</p>
+                <input class="c" type="text" name="email" value="{{ user.email }}">
+                <p for="password">Password:</p>
+                <input class="c" type="password" name="password">
+                <p for="confirm-password">Confirm Password:</p>
+                <input class="c" type="password" name="confirm-password">
+            </div>
+            <div class="col-2">
+                <p for="address">Address:</p>
+                <input class="c" type="text" name="address" value="{{ user.address }}">  
+                <p for="city">City:</p>  
+                <input class="c" type="text" name="city" value="{{ user.city }}">  
+                <p for="state">State:</p>  
+                <input class="c" type="text" name="state" value="{{ user.state }}">  
+                <p for="zip">Zip Code:</p>  
+                <input class="c" type="number" name="zip" value="{{ user.zip }}">                            
+            </div>
+        </div>
+        <input type="hidden" name="prev_email" value="{{user.email}}"/>
+        <div class="edit-btn">
+            <input type="submit" value="Update" name="submit" class="update">
+        </div>
+        </form>
+        <a class="acc-btn" href="/delete_account/{{ user.id }}">Delete Account</a>
+    </div>
+    {% with messages = get_flashed_messages() %}     
+    {% if messages %}                          
+        {% for message in messages %}         
+            <p class="message">{{message}}</p>               
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

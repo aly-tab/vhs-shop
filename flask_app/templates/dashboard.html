@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>VHSes</title>
+</head>
+<body>
+    <div id="head">
+        <h1><a href="/" class="head-a">VHS Shop</a></h1>
+        <div class="links">
+            {% if session_id != 0 %}
+                <a href="/new" class="head-a">Add VHS</a>
+                <a href="/account" class="head-a">Account</a>
+            {% else %} 
+                <a href="/register" class="head-a">Register</a>
+            {% endif %}
+            {% if session_id != 0 %}
+                <a href="/logout" class="log">Log Out</a>
+            {% else %} 
+                <a href="/login" class="log">Login</a>  
+            {% endif %}
+        </div> 
+    </div>
+    <h2>VHSes</h2>
+    <div id="container-dashboard">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Posted On</th>
+                    <th scope="col">Posted By</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            {% for vhs in vhses %}
+            {% if vhs.poster_id == vhs.owner_id %}
+            <tr>
+                <td id="movie">{{ vhs.title }}</td>
+                <td>{{vhs.updated_at.strftime("%B %d, %Y")}}</td>
+                <td>{{vhs.poster.first_name}} {{vhs.poster.last_name}}</td> 
+                <td>{{ vhs.price }}</td> 
+                <td>
+                    <a href="/view/{{ vhs.id }}">View</a> 
+                    {% if vhs.poster_id == user.id %}
+                    <a href="/edit/{{ vhs.id }}">Edit</a> <a href="/delete/{{ vhs.id }}">Delete</a></p>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
