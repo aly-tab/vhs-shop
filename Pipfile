@@ -12,6 +12,7 @@ cryptography = "*"
 flask-bcrypt = "*"
 cryptograpy = "*"
 requests = "*"
+gunicorn = "*"
 
 [dev-packages]
 
