@@ -312,8 +312,98 @@ textarea {
 }
 
 .col-3 {
-    width: 50%;;
+    width: 50%;
     background-color: rgb(201, 201, 201);
     padding: 15px;
  }
+
+ #getMovieInfo {
+     margin-top: 15px;
+ }
+
+@media only screen and (max-width: 1750px) {
+    #container-account {
+        display: block;
+    }
+     #head-col {
+         width: 100%;
+         margin: 25px 0;
+     }
+}
+
+@media only screen and (max-width: 1000px) {
+    .links {
+        margin-top: 10px;
+    }
+
+    #description {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    h2 {
+        margin: 100px 0 0 0;
+        width: 100%;
+    }
+    #container-dashboard {
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 0.7em;
+    }
+
+    .links a {
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    th, td {
+        font-size: 0.5em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    th, td {
+        font-size: 0.35em;
+    }
+    .links {
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        font-size: 0.35em;
+    }
+
+    #head h1 {
+        font-size: 1em;
+        margin-top: 15px;
+    }
+    .links a{
+        font-size: 0.6em;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .links a {
+        margin-left: 7.5px;
+    }
+
+    #head h1 {
+        font-size: 0.8em;
+        margin-top: 20px;
+    }
+    .links a{
+        font-size: 0.45em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #title-search {
+        width: 100%;
+    }
+}
 
